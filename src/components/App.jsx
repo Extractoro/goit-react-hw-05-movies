@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
-import Main from 'components/Main/Main';
+import Main from 'components/Main';
 
 const HomePage = lazy(() =>
   import('pages/HomePage/HomePage' /* webpackChunkName: "home-view" */)
