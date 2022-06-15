@@ -1,14 +1,41 @@
 import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Navigation = () => {
   return (
-    <nav>
-      <NavLink to="/" exact="true">
+    <Wrapper>
+      <StyledLink to="/" exact="true">
         Home
-      </NavLink>
-      <NavLink to="/movies">Movies</NavLink>
-    </nav>
+      </StyledLink>
+      <StyledLink to="/movies">Movies</StyledLink>
+    </Wrapper>
   );
 };
 
 export default Navigation;
+
+const Wrapper = styled.nav`
+  display: flex;
+  align-items: center;
+`;
+
+export const StyledLink = styled(NavLink)`
+  margin-top: 5px;
+  padding-bottom: 9px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  margin-right: 15px;
+  font-weight: 700;
+  font-family: 'Comfortaa', sans-serif;
+  border-bottom: 3px solid transparent;
+  transition: color #ffa600;
+  &.active {
+    color: #ffa600;
+    border-bottom: 5px solid #ffa600;
+  }
+  &:hover {
+    cursor: pointer;
+    color: #ffa600;
+  }
+`;

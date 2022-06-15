@@ -2,6 +2,7 @@ import MoviesList from 'components/MoviesList/MoviesList';
 import { useEffect, useState } from 'react';
 import { fetchApi } from 'services/fetchApi';
 import styled from 'styled-components';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { mappedMovies } from '../../utils/mappedMovies';
 
 const HomePage = () => {
@@ -15,13 +16,16 @@ const HomePage = () => {
 
   return (
     <>
-      <h1>Trending Movies</h1>
-      <Section>
-        <MoviesList movies={movies} />
-      </Section>
+      <Title>Trending Movies</Title>
+
+      <MoviesList movies={movies} />
     </>
   );
 };
 
-const Section = styled.section``;
+const Title = styled.h1`
+  display: block;
+  text-align: center;
+`;
+
 export default HomePage;

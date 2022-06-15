@@ -1,17 +1,32 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import MoviesItem from './MoviesItem/MoviesItem';
+import styled from 'styled-components';
+
 const MoviesList = ({ movies }) => {
+  const location = useLocation();
   return (
-    <ul>
+    <Wrapper>
       {movies.map(item => (
-        <li key={item.id}>
-          <Link to={`/movies/${item.id}`}>
+        <Item key={item.id}>
+          <Link to={`/movies/${item.id}`} state={{ from: location }}>
             <MoviesItem {...item} />
           </Link>
-        </li>
+        </Item>
       ))}
-    </ul>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.ul`
+  display: grid;
+  gap: 25px;
+  grid-template-columns: 1fr 1fr 1fr;
+`;
+
+const Item = styled.li`
+  margin: 0 auto;
+  list-style: none;
+  text-decoration: none;
+`;
 
 export default MoviesList;

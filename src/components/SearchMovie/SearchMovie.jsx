@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import styled from 'styled-components';
 
 const SearchMovie = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
@@ -21,12 +22,12 @@ const SearchMovie = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <button type="submit">
         <BiSearch size={25} />
       </button>
 
-      <input
+      <Input
         onChange={handleNameChange}
         type="text"
         autoComplete="off"
@@ -34,8 +35,26 @@ const SearchMovie = ({ onSubmit }) => {
         autoFocus
         placeholder="Search images and photos"
       />
-    </form>
+    </Form>
   );
 };
+
+const Form = styled.form`
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+`;
+
+const Input = styled.input`
+  width: 340px;
+  margin-right: 10px;
+
+  background-color: transparent;
+  padding-left: 20px;
+  font-size: 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+`;
 
 export default SearchMovie;

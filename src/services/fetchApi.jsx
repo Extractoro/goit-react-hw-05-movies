@@ -22,6 +22,26 @@ export const fetchDetails = async id => {
   }
 };
 
+export const fetchCast = async id => {
+  try {
+    const url = `${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US`;
+    const response = await fetch(url);
+    return response.json();
+  } catch (error) {
+    Notify.failure('Oops, an error occurred');
+  }
+};
+
+export const fetchReviews = async id => {
+  try {
+    const url = `${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`;
+    const response = await fetch(url);
+    return response.json();
+  } catch (error) {
+    Notify.failure('Oops, an error occurred');
+  }
+};
+
 export const fetchSearch = async query => {
   try {
     const searchParams = new URLSearchParams({
