@@ -4,6 +4,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchSearch } from 'services/fetchApi';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { mappedMovies } from 'utils/mappedMovies';
 
 const PARAM_QUERY = 'query';
@@ -16,11 +17,12 @@ const MoviesPage = () => {
     const query = queryParam.get(PARAM_QUERY);
 
     if (query) handleSubmit(query);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSubmit = query => {
     setQueryParam({ [PARAM_QUERY]: query });
-    //Loading
+    Loading.circle();
 
     fetchSearch(query).then(({ results }) => {
       if (results.length === 0) {
@@ -29,6 +31,7 @@ const MoviesPage = () => {
         setMovies(mappedMovies(results));
       }
     });
+    Loading.remove();
   };
 
   return (

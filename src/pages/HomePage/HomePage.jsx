@@ -2,7 +2,6 @@ import MoviesList from 'components/MoviesList/MoviesList';
 import { useEffect, useState } from 'react';
 import { fetchApi } from 'services/fetchApi';
 import styled from 'styled-components';
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { mappedMovies } from '../../utils/mappedMovies';
 
 const HomePage = () => {

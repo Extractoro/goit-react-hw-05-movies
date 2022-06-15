@@ -6,6 +6,7 @@ import Reviews from 'components/Reviews/Reviews';
 import { useEffect, useState } from 'react';
 import { Outlet, Route, Routes, useParams } from 'react-router-dom';
 import { fetchDetails } from 'services/fetchApi';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { mappedDetails } from 'utils/mappedDetails';
 
 const MovieDetailsPage = () => {
@@ -13,9 +14,11 @@ const MovieDetailsPage = () => {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
+    Loading.circle();
     fetchDetails(movieId).then(data => {
       setMovie(mappedDetails(data));
     });
+    Loading.remove();
   }, [movieId]);
 
   return (

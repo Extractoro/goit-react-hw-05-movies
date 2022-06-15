@@ -40,13 +40,4 @@ const Title = styled.h3`
   line-height: 12px / 14px;
   color: #000;
 `;
-
-const Genres = styled.p`
-  margin-top: 4px;
-  font-size: 12px;
-  line-height: 12px / 14px;
-  font-weight: 500;
-  color: #ffa600;
-`;
-
 export default MoviesItem;

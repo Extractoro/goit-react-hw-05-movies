@@ -12,7 +12,10 @@ const GoBackButton = () => {
     if (state?.from) {
       const { pathname, search } = state.from;
       setFrom(`${pathname}${search}`);
+      return;
     }
+
+    setFrom(`/`);
   }, [state?.from]);
 
   const handleBack = () => navigate(from);
