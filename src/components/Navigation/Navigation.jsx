@@ -4,10 +4,12 @@ import styled from 'styled-components';
 const Navigation = () => {
   return (
     <Wrapper>
-      <StyledLink to="/" exact="true">
+      <StyledLink to="/goit-react-hw-05-movies" exact="true">
         Home
       </StyledLink>
-      <StyledLink to="/movies">Movies</StyledLink>
+      <StyledLink exact="true" to="/goit-react-hw-05-movies/movies">
+        Movies
+      </StyledLink>
     </Wrapper>
   );
 };
