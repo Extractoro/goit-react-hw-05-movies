@@ -23,11 +23,9 @@ export const App = () => {
         {Loading.remove()}
 
         <Routes>
-          <Route path="/" element={<Main />}>
-            <Route index element={<HomePage />} />
-            <Route path="movies/:movieId/*" element={<MovieDetailsPage />} />
-            <Route path="movies" element={<MoviesPage />} />
-          </Route>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movies/:movieId/*" element={<MovieDetailsPage />} />
+          <Route path="/movies" element={<MoviesPage />} />
         </Routes>
       </>
     </Suspense>
