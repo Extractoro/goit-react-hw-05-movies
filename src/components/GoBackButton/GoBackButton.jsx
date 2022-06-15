@@ -15,7 +15,7 @@ const GoBackButton = () => {
       return;
     }
 
-    setFrom(`/goit-react-hw-05-movies`);
+    setFrom(`/`);
   }, [state?.from]);
 
   const handleBack = () => navigate(from);

@@ -5,12 +5,12 @@ const MovieNav = ({ movieId }) => {
   return (
     <LinksMenu>
       <LinksItem>
-        <NavLink to={`/goit-react-hw-05-movies/movies/${movieId}/cast`}>
+        <NavLink to={`/movies/${movieId}/cast`}>
           Cast
         </NavLink>
       </LinksItem>
       <LinksItem>
-        <NavLink to={`/goit-react-hw-05-movies/movies/${movieId}/reviews`}>
+        <NavLink to={`/movies/${movieId}/reviews`}>
           Reviews
         </NavLink>
       </LinksItem>

@@ -8,10 +8,7 @@ const MoviesList = ({ movies }) => {
     <Wrapper>
       {movies.map(item => (
         <Item key={item.id}>
-          <Link
-            to={`/goit-react-hw-05-movies/movies/${item.id}`}
-            state={{ from: location }}
-          >
+          <Link to={`/movies/${item.id}`} state={{ from: location }}>
             <MoviesItem {...item} />
           </Link>
         </Item>

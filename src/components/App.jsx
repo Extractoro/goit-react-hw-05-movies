@@ -24,15 +24,9 @@ export const App = () => {
         <Header />
 
         <Routes>
-          <Route path="/goit-react-hw-05-movies" element={<HomePage />} />
-          <Route
-            path="/goit-react-hw-05-movies/movies/:movieId/*"
-            element={<MovieDetailsPage />}
-          />
-          <Route
-            path="/goit-react-hw-05-movies/movies"
-            element={<MoviesPage />}
-          />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movies/:movieId/*" element={<MovieDetailsPage />} />
+          <Route path="/movies" element={<MoviesPage />} />
         </Routes>
       </>
     </Suspense>
