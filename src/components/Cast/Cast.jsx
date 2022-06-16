@@ -11,7 +11,7 @@ const Cast = ({ movieId }) => {
     fetchCast(movieId).then(data => {
       setCast(mappedCast(data));
     });
-  });
+  }, [movieId]);
 
   return (
     <List>

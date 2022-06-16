@@ -10,7 +10,7 @@ const Reviews = ({ movieId }) => {
     fetchReviews(movieId).then(({ results }) => {
       setReviews(mappedReviews(results));
     });
-  });
+  }, [movieId]);
 
   return (
     <List>

@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import Header from './Header/Header';
+import NotFoundPage from './NotFound/NotFoundPage';
 
 const HomePage = lazy(() =>
   import('pages/HomePage/HomePage' /* webpackChunkName: "home-view" */)
@@ -24,6 +25,7 @@ export const App = () => {
         <Header />
 
         <Routes>
+          <Route path="*" element={<NotFoundPage />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/movies/:movieId/*" element={<MovieDetailsPage />} />
           <Route path="/movies" element={<MoviesPage />} />

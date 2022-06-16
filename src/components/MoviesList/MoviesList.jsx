@@ -8,7 +8,7 @@ const MoviesList = ({ movies }) => {
     <Wrapper>
       {movies.map(item => (
         <Item key={item.id}>
-          <Link to={`/movies/${item.id}`} state={{ from: location }}>
+          <Link to={`/movies/${item.id}`} state={{ prevUrl: location }}>
             <MoviesItem {...item} />
           </Link>
         </Item>

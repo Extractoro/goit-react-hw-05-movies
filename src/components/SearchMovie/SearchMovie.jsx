@@ -17,7 +17,7 @@ const SearchMovie = ({ onSubmit }) => {
       Notify.failure('Oops! Entered an empty string');
       return;
     }
-    onSubmit(query);
+    onSubmit(query.trim());
     setQuery('');
   };
 

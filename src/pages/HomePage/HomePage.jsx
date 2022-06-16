@@ -11,7 +11,7 @@ const HomePage = () => {
     fetchApi().then(({ results }) => {
       setMovies(mappedMovies(results));
     });
-  });
+  }, []);
 
   return (
     <>
