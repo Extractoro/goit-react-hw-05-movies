@@ -1,12 +1,14 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import { fetchCast } from 'services/fetchApi';
 import { mappedCast } from 'utils/mappedCast';
 import CastItem from './CastItem/CastItem';
-import styled from 'styled-components';
 
-const Cast = ({ movieId }) => {
+const Cast = () => {
   const [cast, setCast] = useState([]);
+  const { movieId } = useParams();
+
   useEffect(() => {
     fetchCast(movieId).then(data => {
       setCast(mappedCast(data));
@@ -15,7 +17,7 @@ const Cast = ({ movieId }) => {
 
   return (
     <List>
-      {cast.length > 0 &&
+      {cast.length > 0 ? (
         cast.map(item => (
           <Item key={item.id}>
             <CastItem
@@ -24,7 +26,10 @@ const Cast = ({ movieId }) => {
               photo={item.photo}
             />
           </Item>
-        ))}
+        ))
+      ) : (
+        <h3>No information</h3>
+      )}
     </List>
   );
 };

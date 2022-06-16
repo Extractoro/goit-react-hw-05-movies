@@ -1,4 +1,6 @@
+// import NotFoundPage from 'components/NotFound/NotFoundPage';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Navigate } from 'react-router-dom';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '1f2231d799563a30b24b357a44da2aa2';
 
@@ -9,6 +11,7 @@ export const fetchApi = async () => {
     return response.json();
   } catch (error) {
     Notify.failure('Oops, an error occurred');
+    <Navigate to="/" replace={true} />;
   }
 };
 
@@ -18,7 +21,7 @@ export const fetchDetails = async id => {
     const response = await fetch(url);
     return response.json();
   } catch (error) {
-    Notify.failure('Oops, an error occurred');
+    <Navigate to="/" replace={true} />;
   }
 };
 

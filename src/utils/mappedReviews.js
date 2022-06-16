@@ -1,4 +1,4 @@
-export const mappedReviews = list =>
+export const mappedReviews = (list = []) =>
   list.map(item => ({
     id: item.id,
     name: item.author,
